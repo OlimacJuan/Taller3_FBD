@@ -1,11 +1,16 @@
+import os
 from fastapi import FastAPI, HTTPException
 from pymongo import MongoClient
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()  # Carga las variables de entorno desde un archivo .env
 
 app = FastAPI()
 
-# Configuración de MongoDB
-client = MongoClient("mongodb://ISIS2304F07202610:dEmoxvDtNaSn@157.253.236.88:8087/?authSource=admin")
+# Configuración de MongoDB usando variable de entorno
+MONGO_URI = os.getenv("MONGO_URI")
+client = MongoClient(MONGO_URI)
 db = client["ISIS2304F07202610"]
 coleccion_comentarios = db["comentarios_bares"]
 coleccion_eventos = db["eventos"]

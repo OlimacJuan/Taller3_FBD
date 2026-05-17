@@ -1,0 +1,6 @@
+# Ignorar el archivo de variables de entorno (credenciales seguras)
+.env
+
+# Ignorar archivos compilados de python
+__pycache__/
+*.py[cod]
